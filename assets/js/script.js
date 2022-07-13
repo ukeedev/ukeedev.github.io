@@ -1,0 +1,11 @@
+$(document).ready(function(){
+    $("#sell").hide();
+    $("#goSell").click(function(){
+        $("#buy").hide();
+        $("#sell").show();
+    });
+    $("#goBuy").click(function(){
+        $("#buy").show();
+        $("#sell").hide();
+    });
+});

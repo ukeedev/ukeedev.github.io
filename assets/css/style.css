@@ -1,0 +1,182 @@
+button:disabled,
+button[disabled] {
+    cursor: default;
+}
+
+.button-green {
+    background-color: #426B32;
+    color: #fff;
+}
+
+.button-green:hover,
+.button-green:focus {
+    background-color: #345528;
+    color: #fff;
+}
+
+.current-rate {
+    display: block;
+    background-color: #141618;
+    color: #fff;
+}
+
+.current-rate.active,
+.current-rate.active:hover {
+    background-color: #eff2f5;
+    color: #141618;
+}
+
+.current-rate:hover,
+.current-rate:focus {
+    background-color: #000;
+    color: #fff;
+}
+
+.currency {
+    font-size: 1.25em;
+    color: #141618;
+    position: relative;
+}
+
+.hkd, .usdt {
+    position: relative;
+}
+
+.hkd:before,
+.usdt:before {
+    position: absolute;
+    top: 13px;
+    right: 30px;
+    width: 70px;
+    height: 35px;
+    z-index: 9;
+    font-size: 1.25em;
+    text-align: right;
+    color: #141618;
+    background: #fff;
+}
+
+.hkd:before {
+    content: "HKD";
+}
+
+.usdt:before {
+    content: "USDT";
+}
+
+.converter {
+    z-index: 9;
+}
+
+.process {
+    padding-top: 70px;
+}
+
+.step {
+    border: 1px solid #f4f4f4;
+    box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.10);
+}
+
+.step-img {
+    width: auto;
+    height: 195px;
+}
+
+.gmap-canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+    height: 650px;
+}
+
+.gmap-canvas iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.arrow-1, .arrow-2 {
+    position: relative;
+}
+
+.arrow-1::after,
+.arrow-2::after {
+    position: absolute;
+    content: url(../images/arrow.svg);
+    z-index: 9;
+}
+
+.arrow-1::after {
+    top: 30px;
+    right: -80px;
+}
+
+.arrow-2::after {
+    top: 280px;
+    left: -70px;
+    transform: scaley(-1);
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:15px;
+	right:15px;
+	background-color:#426B32;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+  z-index:100;
+}
+
+.float:hover,
+.float:focus {
+    background-color: #345528;
+    color: #fff;
+}
+
+.float-icon {
+	margin-top:15px;
+}
+
+@media (min-width: 768px) {
+    input.currency {
+        margin-bottom: 0;
+    }
+    .push-up {
+        margin-top: -90px;
+    }
+    .owl-carousel.owl-dots-overlay .owl-dots, .owl-carousel.owl-dots-overlay-left .owl-dots, .owl-carousel.owl-dots-overlay-right .owl-dots {
+        bottom: 110px;
+    }
+    .step {
+        min-height: 362px;
+    }
+    .gradient-shadow::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: calc(100% - 100px);
+        margin-left: 50px;
+        background: linear-gradient(180deg, black, white);
+        z-index: -1;
+        filter: blur(20px);
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 991px) {
+    .arrow-1::after {
+        top: 330px;
+        right: -10px;
+        transform: rotate(90deg);
+    }
+    .arrow-2::after {
+        top: -50px;
+        left: -10px;
+        transform: rotate(90deg) scaley(-1);
+    }
+}

@@ -1,7 +1,275 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+        <meta name="keywords" content="">
+		<title>Ukee</title>
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+		<link rel="manifest" href="site.webmanifest">
+		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#426b32">
+		<meta name="msapplication-TileColor" content="#00a300">
+		<meta name="theme-color" content="#ffffff">
+		<!-- CSS -->
+		<link href="assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+		<link href="assets/plugins/owl-carousel/owl.theme.default.min.css" rel="stylesheet">
+		<link href="assets/plugins/sal/sal.min.css" rel="stylesheet">
+		<link href="assets/fonts/fonts.css" rel="stylesheet">
+		<link href="assets/css/main.css" rel="stylesheet">
+		<link href="assets/css/style.css" rel="stylesheet">
+		<!-- Fonts/Icons -->
+		<link href="assets/plugins/font-awesome/css/all.css" rel="stylesheet">
+	</head>
+	<body data-preloader="4">
+
+		<div class="wrapper">
+
+		<!-- Whatsapp button -->
+		<a href="#" class="float hover-float" target="_blank">
+			<i class="fab fa-whatsapp float-icon"></i>
+		</a>
+		<!-- end Whatsapp button -->
+
+			<!-- Header -->
+			<div class="header absolute-light">
+				<div class="container">
+					<div class="logo">
+						<img class="logo-light" src="assets/images/logo.svg" alt="">
+					</div>
+					<div class="header-menu-wrapper">
+						<!-- Menu -->
+						<ul class="header-menu font-x-large">
+							<li class="m-item">
+								<a class="m-link" href="#home">首頁</a>
+							</li>
+							<li class="m-item">
+								<a class="m-link" href="#converter">換U計算機</a>
+							</li>
+							<li class="m-item">
+								<a class="m-link" href="#process">買賣流程</a>
+							</li>
+							<li class="m-item">
+								<a class="m-link" href="#contact">門市資訊</a>
+							</li>
+						</ul>
+						<!-- Close Button -->
+						<button class="close-button">
+							<span></span>
+						</button>
+					</div><!-- end header-menu-wrapper -->
+					<!-- Menu Toggle on Mobile -->
+					<button class="m-toggle">
+						<span></span>
+					</button>
+				</div><!-- end container -->
+			</div>
+			<!-- end Header -->
+
+			<!-- Hero section -->
+			<div id="home" class="owl-carousel owl-dots-overlay owl-nav-overlay" data-owl-items="1" data-owl-nav="false" data-owl-autoplay="true">
+				<!-- Slide 1 -->
+				<div class="section-3xl bg-image" data-bg-src="assets/images/ukee-bg.jpg">
+					<div class="bg-dark-05">
+						<div class="container text-center">
+							<div class="row">
+								<div class="col-12 col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
+									<h1 class="display-5 font-weight-semi-bold margin-bottom-20">亞洲頂尖數碼資產場外交易中心</h1>
+									<div class="margin-top-40">
+										<span class="font-2x-large font-weight-medium">Ukee 助你自由買賣 比特幣、以太幣、幣安幣 、 其他過百種加密貨幣。</span>
+									</div>
+									<div class="margin-top-40">
+										<a class="button button-xl button-radius button-outline-white button-font-2 font-x-large font-weight-medium" href="#contact">立即預約</a>
+									</div>
+								</div>
+							</div><!-- end row -->
+						</div><!-- end container -->
+					</div>
+				</div>
+				<!-- Slide 2 -->
+				<div class="section-3xl bg-image" data-bg-src="assets/images/ukee-bg.jpg">
+					<div class="bg-dark-05">
+						<div class="container text-center">
+							<div class="row">
+								<div class="col-12 col-lg-10 offset-lg-1 col-xl-10 offset-xl-1">
+									<h1 class="display-5 font-weight-semi-bold margin-bottom-20">亞洲頂尖數碼資產場外交易中心</h1>
+									<div class="margin-top-40">
+										<span class="font-2x-large font-weight-medium">Ukee 助你自由買賣 比特幣、以太幣、幣安幣 、 其他過百種加密貨幣。</span>
+									</div>
+									<div class="margin-top-40">
+										<a class="button button-xl button-radius button-outline-white button-font-2 font-x-large font-weight-medium" href="#contact">立即預約</a>
+									</div>
+								</div>
+							</div><!-- end row -->
+						</div><!-- end container -->
+					</div>
+				</div>
+			</div>
+			<!-- end Hero section -->
+
+			<!-- Converter section -->
+			<div id="converter" class="converter push-up section padding-0">
+				<div class="container">
+					<div class="padding-20 padding-bottom-0 bg-white gradient-shadow text-center border-radius-05">
+						<!-- Buy section -->
+						<div id="buy">
+							<div class="row col-spacing-20">
+								<div class="col-6">
+									<button class="current-rate active button btn-block padding-20 text-center border-radius-05" disabled>
+										<span class="font-x-large">我要買U</span>
+										<span id="current_buy_1" class="display-4 font-family-secondary d-block"></span>
+									</button>
+								</div>
+								<div class="col-6">
+									<button id="goSell" class="current-rate button btn-block padding-20 text-center border-radius-05">
+										<span class="font-x-large">我要賣U</span>
+										<span id="current_sell_1" class="display-4 font-family-secondary d-block"></span>
+									</button>
+								</div>
+							</div>
+							<div class="row col-spacing-20">
+								<div class="col-12 margin-top-20">
+									<div class="form-row margin-0 padding-x-20 padding-y-30 bg-gray text-center border-radius-05">
+										<div class="col-12 col-md-6 hkd">
+											<label name="" id="input_currency_1" class="d-none" value="HKD">HKD</label>
+											<input type="number" name="name" placeholder="" class="currency bg-white" id="input_amount_1" value="1">
+										</div>
+										<div class="col-12 col-md-6 usdt">
+											<label name="" id="output_currency_1" class="d-none" value="USDT">USDT</label>
+											<input type="number" name="name" placeholder="" class="currency bg-white" id="output_amount_1" value="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end Buy section -->
+						<!-- Sell section -->
+						<div id="sell">
+							<div class="row col-spacing-20">
+								<div class="col-6">
+									<button id="goBuy" class="current-rate button btn-block padding-20 text-center border-radius-05">
+										<span class="font-x-large">我要買U</span>
+										<span id="current_buy_2" class="display-4 font-family-secondary d-block"></span>
+									</button>
+								</div>
+								<div class="col-6">
+									<button class="current-rate active button btn-block padding-20 text-center border-radius-05" disabled>
+										<span class="font-x-large">我要賣U</span>
+										<span id="current_sell_2" class="display-4 font-family-secondary d-block"></span>
+									</button>
+								</div>
+							</div>
+							<div class="row col-spacing-20">
+								<div class="col-12 margin-top-20">
+									<div class="form-row margin-0 padding-x-20 padding-y-30 bg-gray text-center border-radius-05">
+										<div class="col-12 col-md-6 usdt">
+											<label name="" id="input_currency_2" class="d-none" value="USDT">USDT</label>
+											<input type="number" name="name" placeholder="" class="currency bg-white" id="input_amount_2" value="1">
+										</div>
+										<div class="col-12 col-md-6 hkd">
+											<label name="" id="output_currency_2" class="d-none" value="HKD">HKD</label>
+											<input type="number" name="name" placeholder="" class="currency bg-white" id="output_amount_2" value="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end Sell section -->
+						<div class="row">
+							<div class="col-12 margin-top-20">
+								<a class="button button-green btn-block border-radius-025 padding-20 font-2x-large font-weight-semi-bold" href="#contact">
+									立即預約
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end Converter section -->
+
+			<!-- How it works section -->
+			<div id="process" class="process section">
+				<div class="container">
+					<div class="text-center margin-bottom-40">
+						<div class="row">
+							<div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+								<h2 class="font-weight-semi-bold h1">買賣流程</h2>
+							</div>
+						</div><!-- end row -->
+					</div>
+					<div class="row col-spacing-40">
+						<div class="col-12 col-lg-4">
+							<div class="step arrow-1 padding-30 text-center bg-white box-shadow border-radius-05">
+								<div class="step-img margin-bottom-40 d-flex align-items-center justify-content-center">
+									<img src="assets/images/step-1.svg" alt="">
+								</div>
+								<h3 class="font-weight-semi-bold h4">查詢當日U價</h3>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="step padding-30 text-center bg-white box-shadow border-radius-05">
+								<div class="step-img margin-bottom-40 d-flex align-items-center justify-content-center">
+									<img src="assets/images/step-2.svg" alt="">
+								</div>
+								<h3 class="font-weight-semi-bold h4 margin-0">Whatsapp 通知</h3>
+								<p>*50萬港幣需要一天前預約</p>
+							</div>
+						</div>
+						<div class="col-12 col-lg-4">
+							<div class="step arrow-2 padding-30 text-center bg-white box-shadow border-radius-05">
+								<div class="step-img margin-bottom-40 d-flex align-items-center justify-content-center">
+									<img src="assets/images/step-3.svg" alt="">
+								</div>
+								<h3 class="font-weight-semi-bold h4">門市交收</h3>
+							</div>
+						</div>
+					</div><!-- end row -->
+				</div><!-- end container -->
+			</div>
+			<!-- end How it works section -->
+
+			<!-- Contact section -->
+			<div id="contact" class="contact section padding-0">
+				<div class="container">
+					<div class="text-center margin-bottom-60">
+						<div class="row">
+							<div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+								<h2 class="font-weight-semi-bold h1 margin-bottom-40">門市資料</h2>
+								<p class="font-x-large">旺角雅蘭中心一期XX室, 旺角站E1出口</p>
+							</div>
+						</div><!-- end row -->
+					</div>
+				</div><!-- end container -->
+				<!-- Google Maps -->
+				<div class="container-fluid padding-0">
+					<div class="gmap-canvas">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.9397003198324!2d114.16717831536819!3d22.31812014788682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400c7a240fa9b%3A0x18822863bd67a910!2sGrand%20Plaza!5e0!3m2!1sen!2sph!4v1657533100486!5m2!1sen!2sph" width="1920" height="659" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
+				<!-- end Google maps -->
+			</div>
+			<!-- end Contact section -->
+
+			<!-- Footer -->
+			<div class="section padding-y-30">
+				<div class="container text-center">
+					<p>Ukee &copy; 2022 &middot; <a href="#">Terms</a> &middot; <a href="#">Privacy</a></p>
+				</div><!-- end container -->
+			</div>
+			<!-- end Footer section -->
+			
+		</div><!-- end wrapper -->
+
+		<!-- ***** JAVASCRIPTS ***** -->
+		<script src="assets/plugins/jquery.min.js"></script>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+		<script src="assets/plugins/plugins.js"></script>
+		<script src="assets/js/functions.js"></script>
+		<script src="assets/js/converter.js"></script>
+		<script src="assets/js/script.js"></script>
+	</body>
 </html>
