@@ -16,19 +16,19 @@ button[disabled] {
 
 .current-rate {
     display: block;
-    background-color: #141618;
-    color: #fff;
-}
-
-.current-rate.active,
-.current-rate.active:hover {
     background-color: #eff2f5;
     color: #141618;
 }
 
+.current-rate.active,
+.current-rate.active:hover {
+    background-color: #141618;
+    color: #fff;
+}
+
 .current-rate:hover,
 .current-rate:focus {
-    background-color: #000;
+    background-color: #141618;
     color: #fff;
 }
 
