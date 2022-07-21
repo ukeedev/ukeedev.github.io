@@ -1,5 +1,5 @@
-const buy_rate = "8.17";
-const sell_rate = "7.54";
+const buy_rate = "8.16";
+const sell_rate = "7.53";
 
 var vm1 = new Vue({
   el: '#buyU',
