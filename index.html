@@ -131,16 +131,14 @@
 									</button>
 								</div>
 							</div>
-							<div class="row col-spacing-20">
+							<div class="row col-spacing-20" id="buyU">
 								<div class="col-12 margin-top-20">
 									<div class="form-row margin-0 padding-x-20 padding-y-30 bg-gray text-center border-radius-05">
-										<div class="col-12 col-md-6 usdt">
-											<label name="" id="input_currency_1" class="d-none" value="USDT">USDT</label>
-											<input type="number" name="name" placeholder="" class="currency bg-white" id="input_amount_1" value="1">
-										</div>
 										<div class="col-12 col-md-6 hkd">
-											<label name="" id="output_currency_1" class="d-none" value="HKD">HKD</label>
-											<input type="number" name="name" placeholder="" class="currency bg-white" id="output_amount_1" value="">
+											<input type="number" name="name" placeholder="" class="currency bg-white" v-model="hkd" min="0" pattern="^\d*(\.\d{0,2})?$">
+										</div>
+										<div class="col-12 col-md-6 usdt">
+											<input type="number" name="name" placeholder="" class="currency bg-white" v-model="usdt" min="0" pattern="^\d*(\.\d{0,2})?$">
 										</div>
 									</div>
 								</div>
@@ -163,16 +161,15 @@
 									</button>
 								</div>
 							</div>
-							<div class="row col-spacing-20">
+							<div class="row col-spacing-20" id="sellU">
 								<div class="col-12 margin-top-20">
 									<div class="form-row margin-0 padding-x-20 padding-y-30 bg-gray text-center border-radius-05">
 										<div class="col-12 col-md-6 usdt">
-											<label name="" id="input_currency_2" class="d-none" value="USDT">USDT</label>
-											<input type="number" name="name" placeholder="" class="currency bg-white" id="input_amount_2" value="1">
+											<input type="number" name="name" placeholder="" class="currency bg-white" v-model="usdt" min="0" pattern="^\d*(\.\d{0,2})?$">
 										</div>
 										<div class="col-12 col-md-6 hkd">
 											<label name="" id="output_currency_2" class="d-none" value="HKD">HKD</label>
-											<input type="number" name="name" placeholder="" class="currency bg-white" id="output_amount_2" value="">
+											<input type="number" name="name" placeholder="" class="currency bg-white" v-model="hkd" min="0" pattern="^\d*(\.\d{0,2})?$">
 										</div>
 									</div>
 								</div>
@@ -267,6 +264,7 @@
 		<!-- ***** JAVASCRIPTS ***** -->
 		<script src="assets/plugins/jquery.min.js"></script>
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+		<script src="assets/plugins/vue.js"></script>
 		<script src="assets/plugins/plugins.js"></script>
 		<script src="assets/js/functions.js"></script>
 		<script src="assets/js/converter.js"></script>
