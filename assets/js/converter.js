@@ -1,4 +1,4 @@
-const buy_rate = "7.85";
+const buy_rate = "7.845";
 const sell_rate = "7.88";
 
 var vm1 = new Vue({
