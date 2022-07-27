@@ -180,3 +180,12 @@ button[disabled] {
         transform: rotate(90deg) scaley(-1);
     }
 }
+
+@media (max-width: 435px) {
+    #current_buy_1,
+    #current_sell_1,
+    #current_buy_2,
+    #current_sell_2 {
+        font-size: 2.25em;
+    }
+}
