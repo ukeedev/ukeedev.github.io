@@ -9,10 +9,10 @@ var vm1 = new Vue({
   },
   watch: {
     usdt: function (value){
-      this.hkd = value * buy_rate;
+      this.hkd = parseFloat((value * buy_rate).toPrecision(5));
     },
     hkd: function (value){
-      this.usdt = value / buy_rate;
+      this.usdt = parseFloat((value / buy_rate).toPrecision(5));
     }
   }
 });
@@ -25,10 +25,10 @@ var vm2 = new Vue({
     },
     watch: {
       usdt: function (value){
-        this.hkd = value * sell_rate;
+        this.hkd = parseFloat((value * sell_rate).toPrecision(5));
       },
       hkd: function (value){
-        this.usdt = value / sell_rate;
+        this.usdt = parseFloat((value / sell_rate).toPrecision(5));
       }
     }
   });
