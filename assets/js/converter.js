@@ -1,5 +1,5 @@
-const buy_rate = "7.850";
-const sell_rate = "7.870";
+const buy_rate = "12.34";
+const sell_rate = "56.78";
 
 var vm1 = new Vue({
   el: '#buyU',
@@ -33,7 +33,7 @@ var vm2 = new Vue({
     }
   });
 
-document.getElementById("current_buy_1").innerHTML = buy_rate;
-document.getElementById("current_buy_2").innerHTML = buy_rate;
-document.getElementById("current_sell_1").innerHTML = sell_rate;
-document.getElementById("current_sell_2").innerHTML = sell_rate;
+//document.getElementById("current_buy_1").innerHTML = buy_rate;
+//document.getElementById("current_buy_2").innerHTML = buy_rate;
+//document.getElementById("current_sell_1").innerHTML = sell_rate;
+//document.getElementById("current_sell_2").innerHTML = sell_rate;

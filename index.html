@@ -117,17 +117,17 @@
 					<div class="padding-20 padding-bottom-0 bg-white gradient-shadow text-center border-radius-05">
 						<!-- Buy section -->
 						<div id="buy">
-							<div class="row col-spacing-20">
+							<div class="row col-spacing-20" id="currentbuy">
 								<div class="col-6">
 									<button class="current-rate active button btn-block padding-20 text-center border-radius-05" disabled>
 										<span class="font-x-large">我要買U</span>
-										<span id="current_buy_1" class="display-4 font-family-secondary d-block"></span>
+										<span id="current_buy_1" class="display-4 font-family-secondary d-block">{{ meta.buy }}</span>
 									</button>
 								</div>
 								<div class="col-6">
 									<button id="goSell" class="current-rate button btn-block padding-20 text-center border-radius-05">
 										<span class="font-x-large">我要賣U</span>
-										<span id="current_sell_1" class="display-4 font-family-secondary d-block"></span>
+										<span id="current_sell_1" class="display-4 font-family-secondary d-block">{{ meta.sell }}</span>
 									</button>
 								</div>
 							</div>
@@ -147,17 +147,17 @@
 						<!-- end Buy section -->
 						<!-- Sell section -->
 						<div id="sell">
-							<div class="row col-spacing-20">
+							<div class="row col-spacing-20" id="currentsell">
 								<div class="col-6">
 									<button id="goBuy" class="current-rate button btn-block padding-20 text-center border-radius-05">
 										<span class="font-x-large">我要買U</span>
-										<span id="current_buy_2" class="display-4 font-family-secondary d-block"></span>
+										<span id="current_buy_2" class="display-4 font-family-secondary d-block">{{ meta.buy }}</span>
 									</button>
 								</div>
 								<div class="col-6">
 									<button class="current-rate active button btn-block padding-20 text-center border-radius-05" disabled>
 										<span class="font-x-large">我要賣U</span>
-										<span id="current_sell_2" class="display-4 font-family-secondary d-block"></span>
+										<span id="current_sell_2" class="display-4 font-family-secondary d-block">{{ meta.sell }}</span>
 									</button>
 								</div>
 							</div>
@@ -266,9 +266,50 @@
 		<script src="assets/plugins/jquery.min.js"></script>
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
 		<script src="assets/plugins/vue.js"></script>
+		<script src="assets/plugins/axios.min.js"></script>
 		<script src="assets/plugins/plugins.js"></script>
 		<script src="assets/js/functions.js"></script>
 		<script src="assets/js/converter.js"></script>
 		<script src="assets/js/script.js"></script>
+		<script>
+			var currentbuy = new Vue({
+				el: '#currentbuy',
+				data: {
+					meta: []
+				},
+				mounted () {
+				axios
+					.get('https://api.sheetson.com/v2/sheets/Rates', {
+					headers: {
+						'Content-Type': 'application/json',
+						'Authorization': 'Bearer BX4FfcHOvPVToMt66Oww1zABl_f1TPHb7fItwIovjfLh5gumAPA6Cf62kwM',
+						'X-Sheetson-Spreadsheet-Id': '1qn0P3UhxrtWk1jw7-Vb80UTdDhwh-SS0ccfh1pKQT8c'
+					}
+					})
+					.then(response => (this.meta = response.data.results[0]))
+					console.log(this.meta);
+				},
+				methods: {}
+			});
+
+			var currentsell = new Vue({
+				el: '#currentsell',
+				data: {
+					meta: []
+				},
+				mounted () {
+				axios
+					.get('https://api.sheetson.com/v2/sheets/Rates', {
+					headers: {
+						'Content-Type': 'application/json',
+						'Authorization': 'Bearer BX4FfcHOvPVToMt66Oww1zABl_f1TPHb7fItwIovjfLh5gumAPA6Cf62kwM',
+						'X-Sheetson-Spreadsheet-Id': '1qn0P3UhxrtWk1jw7-Vb80UTdDhwh-SS0ccfh1pKQT8c'
+					}
+					})
+					.then(response => (this.meta = response.data.results[0]))
+				},
+				methods: {}
+			});
+			</script>
 	</body>
 </html>
