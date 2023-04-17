@@ -33,7 +33,7 @@ var vm2 = new Vue({
     }
   });
 
-//document.getElementById("current_buy_1").innerHTML = buy_rate;
-//document.getElementById("current_buy_2").innerHTML = buy_rate;
-//document.getElementById("current_sell_1").innerHTML = sell_rate;
-//document.getElementById("current_sell_2").innerHTML = sell_rate;
+document.getElementById("current_buy_1").innerHTML = buy_rate;
+document.getElementById("current_buy_2").innerHTML = buy_rate;
+document.getElementById("current_sell_1").innerHTML = sell_rate;
+document.getElementById("current_sell_2").innerHTML = sell_rate;
