@@ -10,7 +10,7 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-		<link rel="manifest" href="site.webmanifest">
+		<!--<link rel="manifest" href="site.webmanifest">-->
 		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#426b32">
 		<meta name="msapplication-TileColor" content="#00a300">
 		<meta name="theme-color" content="#ffffff">
@@ -117,7 +117,7 @@
 					<div class="padding-20 padding-bottom-0 bg-white gradient-shadow text-center border-radius-05">
 						<!-- Buy section -->
 						<div id="buy">
-							<div class="row col-spacing-20" id="currentbuy">
+							<div class="row col-spacing-20" id="currentBuy">
 								<div class="col-6">
 									<button class="current-rate active button btn-block padding-20 text-center border-radius-05" disabled>
 										<span class="font-x-large">我要買U</span>
@@ -131,11 +131,14 @@
 									</button>
 								</div>
 							</div>
+							<div id="buyId" ref="parent" style="text-indent: -99999px; font-size: 0;">
+								<div>{{ buy }}</div>
+							</div>
 							<div class="row col-spacing-20" id="buyU">
 								<div class="col-12 margin-top-20">
 									<div class="form-row margin-0 padding-x-20 padding-y-30 bg-gray text-center border-radius-05">
 										<div class="col-12 col-md-6 usdt">
-											<input type="number" name="name" placeholder="" class="currency bg-white" v-model="usdt" pattern="^\d*(\.\d{0,4})?$">
+											<input type="number" name="name" placeholder="" class="currency bg-white" v-model="usdt"  pattern="^\d*(\.\d{0,4})?$">
 										</div>
 										<div class="col-12 col-md-6 hkd">
 											<input type="number" name="name" placeholder="" class="currency bg-white" v-model="hkd" pattern="^\d*(\.\d{0,4})?$">
@@ -147,7 +150,7 @@
 						<!-- end Buy section -->
 						<!-- Sell section -->
 						<div id="sell">
-							<div class="row col-spacing-20" id="currentsell">
+							<div class="row col-spacing-20" id="currentSell">
 								<div class="col-6">
 									<button id="goBuy" class="current-rate button btn-block padding-20 text-center border-radius-05">
 										<span class="font-x-large">我要買U</span>
@@ -160,6 +163,9 @@
 										<span id="current_sell_2" class="display-4 font-family-secondary d-block"></span>
 									</button>
 								</div>
+							</div>
+							<div id="sellId" ref="parent" style="text-indent: -99999px; font-size: 0;">
+								<div>{{ sell }}</div>
 							</div>
 							<div class="row col-spacing-20" id="sellU">
 								<div class="col-12 margin-top-20">
@@ -266,16 +272,16 @@
 		<script src="assets/plugins/jquery.min.js"></script>
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
 		<script src="assets/plugins/vue.js"></script>
-		<!--<script src="assets/plugins/axios.min.js"></script>-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js" integrity="sha512-nnNHpffPSgINrsR8ZAIgFUIMexORL5tPwsfktOTxVYSv+AUAILuFYWES8IHl+hhIhpFGlKvWFiz9ZEusrPcSBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="assets/plugins/plugins.js"></script>
 		<script src="assets/js/functions.js"></script>
-		<script src="assets/js/converter.js"></script>
+		<!--<script src="assets/js/converter.js"></script>-->
 		<script src="assets/js/script.js"></script>
-		<!--<script>
-			var currentbuy = new Vue({
-				el: '#currentbuy',
+		<script>
+			var buyId = new Vue({
+				el: '#buyId',
 				data: {
-					meta: []
+					buy: []
 				},
 				mounted () {
 				axios
@@ -286,16 +292,55 @@
 						'X-Sheetson-Spreadsheet-Id': '1qn0P3UhxrtWk1jw7-Vb80UTdDhwh-SS0ccfh1pKQT8c'
 					}
 					})
-					.then(response => (this.meta = response.data.results[0]))
-					console.log(this.meta);
-				},
-				methods: {}
+					.then(response => (this.buy = response.data.results[0].buy))
+				}
 			});
 
-			var currentsell = new Vue({
-				el: '#currentsell',
+			var vm1 = new Vue({
+			el: '#buyU',
+			data:{
+				usdt: 1,
+				hkd: 'Loading...', // set a default value
+			}, 
+			watch: {
+				usdt: function (value){
+					if (this.hkd !== 'Loading...') { // only update if not loading
+					this.hkd = parseFloat((value * buyElement).toPrecision(5));
+				}
+				},
+				hkd: function (value){
+					if (this.hkd !== 'Loading...') { // only update if not loading
+					this.usdt = parseFloat((value / buyElement).toPrecision(5));
+				}
+				}
+			}
+			});
+
+			//let buyElement;
+
+			function getBuyRate() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						buyElement = buyId.$refs.parent.firstElementChild.innerText;
+						document.getElementById("current_buy_1").innerHTML = buyElement;
+						document.getElementById("current_buy_2").innerHTML = buyElement;
+						resolve(buyElement);
+					}, 4000);
+				});
+			}
+
+			const buy_rate = getBuyRate().then((buyElement) => {
+					console.log("Buy rate:", buyElement);
+					vm1.hkd = buyElement; // update the value
+					return buyElement;
+				}).catch(error => {
+					console.log(error);
+			});
+
+			var sellId = new Vue({
+				el: '#sellId',
 				data: {
-					meta: []
+					sell: []
 				},
 				mounted () {
 				axios
@@ -306,10 +351,51 @@
 						'X-Sheetson-Spreadsheet-Id': '1qn0P3UhxrtWk1jw7-Vb80UTdDhwh-SS0ccfh1pKQT8c'
 					}
 					})
-					.then(response => (this.meta = response.data.results[0]))
-				},
-				methods: {}
+					.then(response => (this.sell = response.data.results[0].sell))
+				}
 			});
-			</script>-->
+
+ 			//let sellElement;
+
+			function getSellRate() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						sellElement = sellId.$refs.parent.firstElementChild.innerText;
+						document.getElementById("current_sell_1").innerHTML = sellElement;
+						document.getElementById("current_sell_2").innerHTML = sellElement;
+						resolve(sellElement);
+					}, 4000);
+				});
+			}
+
+			var vm2 = new Vue({
+			el: '#sellU',
+			data:{
+				usdt: 1,
+				hkd: 'Loading...', // set a default value
+			}, 
+			watch: {
+				usdt: function (value){
+				if (this.hkd !== 'Loading...') { // only update if not loading
+					this.hkd = parseFloat((value * sellElement).toPrecision(5));
+				}
+				},
+				hkd: function (value){
+				if (this.hkd !== 'Loading...') { // only update if not loading
+					this.usdt = parseFloat((value / sellElement).toPrecision(5));
+				}
+				}
+			}
+			});
+
+			const sell_rate = getSellRate().then((buyElement) => {
+				console.log("Sell rate:", sellElement);
+				vm2.hkd = sellElement; // update the value
+				return sellElement;
+				}).catch(error => {
+					console.log(error);
+			});
+
+			</script>
 	</body>
 </html>
